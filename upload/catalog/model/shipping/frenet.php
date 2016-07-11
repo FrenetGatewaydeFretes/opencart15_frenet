@@ -78,7 +78,9 @@ class ModelShippingfrenet extends Model {
 
         $values = array();
 
-        if ( isset( $response->GetShippingQuoteResult ) ) {
+        if ( isset( $response->GetShippingQuoteResult ) && isset($response->GetShippingQuoteResult->ShippingSevicesArray)
+            && isset($response->GetShippingQuoteResult->ShippingSevicesArray->ShippingSevices)) {
+
             if(count($response->GetShippingQuoteResult->ShippingSevicesArray->ShippingSevices)==1)
                 $servicosArray[0] = $response->GetShippingQuoteResult->ShippingSevicesArray->ShippingSevices;
             else
